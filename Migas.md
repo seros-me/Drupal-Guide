@@ -6,7 +6,7 @@
  /*
    *   Opción A  Migas desde la URL
    */
-  /*
+  
   //$host = \Drupal::request()->getHost();
   $nohost = \Drupal::request()->getRequestUri();
   $string = explode("/", $nohost);
@@ -15,7 +15,7 @@
   $string[$length - 2] = str_replace("-"," ", $string[$length - 2] );
   $vars['miga_final'] = ucfirst($string[$length - 1]) ;
   $vars['miga_penultima'] = ucfirst($string[$length - 2]);
-  */
+  
 
   //Sacamos las migas desde el arbol del Menú (para solucionar problemas de ortografía) comparamos con la URL.
   //Falta controlar que dos secciones calendario no sepa quien es el padre
@@ -23,7 +23,7 @@
   /*
    *   Opción B
    */
-  /*
+  
   $tree = \Drupal::menuTree()->load('main', new \Drupal\Core\Menu\MenuTreeParameters());
   $x = "";
   foreach ($tree as $item) {
@@ -42,7 +42,7 @@
       }
     }
   }
-  */
+  
 
   /*
    * Opción C  Con Active Trail getCurrentRouteMenuTreeParameters
@@ -50,10 +50,7 @@
 
   //$menuids = \Drupal::service('menu.active_trail')->getActiveTrailIds('main');
   $menulink = \Drupal::service('menu.active_trail')->getActiveLink();
-  $x = '';
-  /*if($menulink == null){
-    $menulink = \Drupal::service('menu.active_trail')->getActiveLink('footer');
-  }*/
+  
   if($menulink != ""){
     if($menulink->getParent()) {
       $parent_link = Drupal::service('plugin.manager.menu.link')->createInstance($menulink->getParent());
