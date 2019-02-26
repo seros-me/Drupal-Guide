@@ -5,7 +5,7 @@
 
    *   Opción A  Migas desde la URL
    
-  
+  ```php
   //$host = \Drupal::request()->getHost();
   $nohost = \Drupal::request()->getRequestUri();
   $string = explode("/", $nohost);
@@ -18,10 +18,10 @@
 
   //Sacamos las migas desde el arbol del Menú (para solucionar problemas de ortografía) comparamos con la URL.
   //Falta controlar que dos secciones calendario no sepa quien es el padre
-
+```
    *   Opción B
    
-  
+  ```php
   $tree = \Drupal::menuTree()->load('main', new \Drupal\Core\Menu\MenuTreeParameters());
   $x = "";
   foreach ($tree as $item) {
@@ -40,11 +40,11 @@
       }
     }
   }
-  
+  ```
 
    * Opción C  Con Active Trail getCurrentRouteMenuTreeParameters
    
-
+```php
   //$menuids = \Drupal::service('menu.active_trail')->getActiveTrailIds('main');
   $menulink = \Drupal::service('menu.active_trail')->getActiveLink();
   
@@ -60,3 +60,4 @@
       $vars['miga_final'] = $menulink->getPluginDefinition()['title'];
     }
   }
+```
