@@ -1,6 +1,22 @@
 **Sugestions para poder optar por un twig u otro
 
+https://befused.com/drupal/page-template-content-type
+
 ´´´php
+
+/**
+ * Implements hook_theme_suggestions_page_alter().
+ */
+function example_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $suggestions[] = 'page__' . $node->bundle();
+  }
+}
+
+
+
+
+
 function fetri_migas_theme_suggestions_page_alter(array &$suggestions,array &$variables) {
 
   $x= "";
