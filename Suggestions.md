@@ -1,8 +1,8 @@
-**Sugestions para poder optar por un twig u otro
+**Sugestions para poder optar por un twig u otro**
 
 https://befused.com/drupal/page-template-content-type
 
-'''php
+```php
 
 /**
  * Implements hook_theme_suggestions_page_alter().
@@ -27,4 +27,4 @@ function fetri_migas_theme_suggestions_page_alter(array &$suggestions,array &$va
 
   return $suggestions;
 }
-'''
+```
