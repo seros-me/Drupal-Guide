@@ -10,7 +10,7 @@ https://befused.com/drupal/page-template-content-type
 function example_theme_suggestions_page_alter(array &$suggestions, array $variables) {
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
     $suggestions[] = 'page__' . $node->bundle(); 
-    -- ->bundle()   NOs da el tipo de nodo que es, Noticia, Documento, ...
+    //->bundle()   NOs da el tipo de nodo que es, Noticia, Documento, ...
   }
 }
 
