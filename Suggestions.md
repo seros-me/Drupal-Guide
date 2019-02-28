@@ -1,6 +1,6 @@
 **Sugestions para poder optar por un twig u otro
 
-´´´´php
+´´´php
 function fetri_migas_theme_suggestions_page_alter(array &$suggestions,array &$variables) {
 
   $x= "";
@@ -10,4 +10,4 @@ function fetri_migas_theme_suggestions_page_alter(array &$suggestions,array &$va
 
   return $suggestions;
 }
-´´´´
+´´´
