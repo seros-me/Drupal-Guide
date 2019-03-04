@@ -4,7 +4,7 @@
 
 *En el Preprocess que corresponda
 
-´´´php
+´´´[php]
  //Para pintar el icono, sacamos la extensión.
   $file = \Drupal\file\Entity\File::load($media_field['target_id']);
   //$imageSRC = file_create_url($file->getFileUri());
