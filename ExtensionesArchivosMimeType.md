@@ -1,10 +1,10 @@
-#Como conseguir la extensión de un tipo de archivo
+#Como conseguir la extensión de un tipo de archivo#
 
 
 
 *En el Preprocess que corresponda
 
-´´´[php]
+´´´ [php]
  //Para pintar el icono, sacamos la extensión.
   $file = \Drupal\file\Entity\File::load($media_field['target_id']);
   //$imageSRC = file_create_url($file->getFileUri());
@@ -13,7 +13,7 @@
 
 ´´´
 * la función a la que llamo
-´´´php
+´´´ php
 function mimeType($extension){
   $ext_limpia = 'alt';
   switch ($extension)
