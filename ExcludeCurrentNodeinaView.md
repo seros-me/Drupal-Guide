@@ -5,8 +5,8 @@ In some situations, for example a block listing nodes related to the node being 
 
 Views 3
 
-1.Click on the "advanced" tab.
-2.Click on add under "contextual filters".
+1. Click on the "advanced" tab.
+2. Click on add under "contextual filters".
 3.Choose Content:nid.
 4.Under "when the filter variable is not available, choose "provide default value".
 5.From the drop down menu select "content id from url".
