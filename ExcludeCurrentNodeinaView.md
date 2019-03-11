@@ -5,14 +5,14 @@ In some situations, for example a block listing nodes related to the node being 
 
 Views 3
 
-Click on the "advanced" tab.
-Click on add under "contextual filters".
-Choose Content:nid.
-Under "when the filter variable is not available, choose "provide default value".
-From the drop down menu select "content id from url".
-Scroll all the way down to the bottom of the window and click on the "More" link.
-Click "Exclude"
-Views 2
+1.Click on the "advanced" tab.
+2.Click on add under "contextual filters".
+3.Choose Content:nid.
+4.Under "when the filter variable is not available, choose "provide default value".
+5.From the drop down menu select "content id from url".
+6.Scroll all the way down to the bottom of the window and click on the "More" link.
+7.Click "Exclude"
+8.Views 2
 
 Use views arguments, assuming this is a block view
 
