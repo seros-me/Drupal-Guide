@@ -1,10 +1,48 @@
 
 **Las partes necesarias**  
-1-Tendremos un modulo en el que iremos añadieno el codigo.
-2-Tendremos dentro de la carpeta 
+1. Tendremos un modulo en el que iremos añadieno el codigo.
+2. Tendremos dentro de la carpeta src/Form tendremos el formulario y lo que sucederá si se modifica alguno de estos filtros.
+3. Tendremos un Contoller dentro de src que sera el encargado de crear el form BikoCustomModuleContrroller.php. En este caso desde el Routing se engancha con la función getAgenda().
 
+
+
+
+
+
+**BikoCustomModuleContrroller.php en la ruta biko_custom_module/src/Controller/BikoCustomModuleContrroller.php**  
 ```php
+function getAgenda(){
+    $fecha = date('d/m/Y');
+    $fecha = \Drupal::request()->query->get('date');
+    $ciclo = \Drupal::request()->query->get('ciclo');
+    $lugar = \Drupal::request()->query->get('lugar');
+    $ajax_form_request = \Drupal::request()->query->has(FormBuilderInterface::AJAX_FORM_REQUEST);
+    if (! $ajax_form_request) {
+      $conectionService = \Drupal::service('conectionservice.service');
+      $resource = 'eventos';
+      $schema = '';
+      $apiResponse = $conectionService->getEventos($resource, $schema);
+      //$apiResponse = $this->getJsonAgendaEventos();
+    }
+    $form = \Drupal::formBuilder()->getForm('\Drupal\esmrs_agenda_eventos\Form\SettingsForm');
 
+    return [
+      '#theme' => 'esmrs_agenda',
+      '#content' => $apiResponse,
+      '#form' => $form,
+      '#attached' => [
+        'library' => [
+          'esmrs_agenda_eventos/esmrs_agenda_eventos.prueba'
+        ],
+      ],
+      '#cache' => ['contexts' => ['url.path', 'url.query_args']],
+
+    ];
+  }
+```
+
+**ArchivoForm.php en la ruta biko_custom_module/src/Form/ArchivoForm.php**  
+```php
 <?php
 
 namespace Drupal\esmrs_agenda_eventos\Form;
@@ -155,7 +193,7 @@ class SettingsForm extends ConfigFormBase {
     parent::submitForm($form, $form_state);
   }
 
-/*
+
   //  Pruebas de Sergio, funciones que actuan en el caso de modificacion del formulario
   public function alterDate(array $form, FormStateInterface $form_state) {
     $ajax_response = new AjaxResponse();
@@ -190,7 +228,7 @@ class SettingsForm extends ConfigFormBase {
     $ajax_response->addCommand(new HtmlCommand('#micontenedor', $text));
     return $ajax_response;
   }
-  */
+  
   public function schemaUrl($form_state) {
     $schemaUrl = 'fecha=' . $form_state->getValue('date') . '&lugar=' . $form_state->getValue('lugar') . '&ciclo=' . $form_state->getValue('ciclo');
 
@@ -199,6 +237,7 @@ class SettingsForm extends ConfigFormBase {
 
 
 }
+
 ```
 
 
