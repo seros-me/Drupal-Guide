@@ -3,7 +3,8 @@
 1-Tendremos un modulo en el que iremos añadieno el codigo.
 2-Tendremos dentro de la carpeta 
 
-'''php 
+```php
+
 <?php
 
 namespace Drupal\esmrs_agenda_eventos\Form;
@@ -198,4 +199,7 @@ class SettingsForm extends ConfigFormBase {
 
 
 }
-'''
+```
+
+
+
