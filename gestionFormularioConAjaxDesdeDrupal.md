@@ -4,8 +4,16 @@
 2. Tendremos dentro de la carpeta src/Form tendremos el formulario y lo que sucederá si se modifica alguno de estos filtros.
 3. Tendremos un Contoller dentro de src que sera el encargado de crear el form BikoCustomModuleContrroller.php. En este caso desde el Routing se engancha con la función getAgenda().
 
-
-
+**Ejemplo del routing.yml**
+```
+esmrs_agenda_eventos.agenda:
+  path: '/agenda-eventos'
+  defaults:
+    _title: 'Agenda de eventos'
+    _controller: '\Drupal\esmrs_agenda_eventos\Controller\EsmrsAgendaEventosController::getAgenda'
+  requirements:
+    _permission: 'access content'
+```
 
 
 
